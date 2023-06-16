@@ -27,12 +27,13 @@ body {
     height: var(--container-size);
     justify-content: center;
     flex-wrap: wrap;
-    border: 1px solid black;
+    outline: 1px solid black;
 }
 
 .grid-item {
     flex-grow: 1;
-    
+    border-right: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
 }
 
 .hovered {

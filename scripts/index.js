@@ -4,6 +4,8 @@ const redrawBtn = document.querySelector('button.redraw-btn')
 
 redrawBtn.addEventListener('click', promptSquare);
 
+window.addEventListener('mouseover', changeColor);
+
 //Clears previous grid and draws a new one
 function drawGrid(squares = 16) {
 
@@ -15,14 +17,16 @@ function drawGrid(squares = 16) {
         gridDiv.style.width = `calc(var(--container-size)/${squares})`;
         gridDiv.style.height = `calc(var(--container-size)/${squares})`; 
         gridDiv.classList.add('grid-item'); 
-        gridDiv.addEventListener('mouseover', changeColor);
 
         container.appendChild(gridDiv);
     }
 }
 
-function changeColor() {
-    this.classList.add('hovered');
+function changeColor(e) {
+    console.log(e.target.classList.contains('grid-item'))
+    if(e.target.classList.contains('grid-item')){
+        e.target.classList.add('hovered');
+    }
 }
 
 function promptSquare() {
